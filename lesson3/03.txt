@@ -1,0 +1,17 @@
+03数据类型的意义，本质，值，对象，以及内存分布
+
+变量命名的规范
+    变量的作用存储记忆内存地址
+
+对象的数据类型
+    undefined 数据类型undefined
+    null数据类型object
+
+    null原型链的终点
+
+    引用类型
+        array function
+
+        function 是 object 的子类
+
+运算符

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //算数运算符(+-*/%++--)
+        var a = "1"+1 //"11"  拼接符
+        var a = true +1;//2   隐式转换
+        var a = "1"*1+1
+
+        //赋值运算符 = -= += *= /= %=
+        var a = 10;
+        a+=10;//a=a+10;
+
+        //比较运算符 == === != < > <= >=  都是比较内存地址
+
+        //逻辑运算符 || && !
+
+        (function(root){//作用域 命名空间
+            var jQuery = function(selector){
+                switch(typeof selector){
+                    case "function":
+                        console.log('function')
+                        break;
+                    case "object":
+                        console.log('object')
+                        break;
+                    case "string":
+                        console.log('string')
+                        break;
+                }
+
+            }
+            root.jQuery = jQuery;
+
+        })()
+        console.log(window.jQuery);
+
+        //1.用 if else switch case以生活为例写出符合现实的语句
+        //2.扩展题
+    </script>
+</body>
+</html>

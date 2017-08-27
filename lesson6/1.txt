@@ -1,0 +1,106 @@
+(function(){
+
+})()
+
+(function(){
+
+}())
+
+上面两种写法是一样的
+1.定义匿名函数
+2.执行
+3.销毁
+
+自执行函数的特点：
+避免污染
+
+
+//jQuery
+(function(root){ //自身局部作用域=》全局作用域
+    var jQuery=function(){
+
+    }
+    root.jQuery = jQuery;
+})(window)
+
+//Vue
+(function(root,factory){
+    root.Vue = factory();
+})(window,function(){//工厂函数
+    var Vue = function(){
+        
+    }
+    return Vue;
+});
+
+全局变量  与  window.xxx的区别
+
+闭包是什么？
+一个函数在创建时 允许自身作用域访问 自身作用域之外的变量
+
+两个作用域之间有依赖关系 并且下层能访问上层作用域中变量
+并且上一级作用域不能被销毁【缓存】
+
+
+//
+//命名空间
+//函数级匿名空间
+//管理代码库
+
+var A = {//代码库
+    util:{//工具
+        XXX:function(){},
+        XXX:function(){}
+    },
+    common:{//公共模块
+        XXX:function(){},
+        XXX:function(){}
+    },
+    ajax:{//ajax
+        set:function(){alert(1)},
+        get:function(){alert(2)}
+    },
+    others:{
+        XXX:function(){},
+        XXX:function(){}
+    }
+
+}
+
+//上面这种方式  的缺点  就是里面的内容可以被修改 不安全
+例如： A.ajax.set = function(){};
+
+var conf = (function(){
+    //私有成员
+    var con ={
+        max :1000,
+        min :100
+    }
+    function util(){
+
+    }
+
+    function others(){
+
+    }
+
+    return {
+        //公开的方法
+        get:function(name){
+            return con[name]?con[name]:null;
+        },
+        util:util,
+        others:others
+    }
+})();
+
+conf.get("max");
+
+
+
+
+
+
+
+
+
